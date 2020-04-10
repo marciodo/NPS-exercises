@@ -1,11 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("../../school_data.csv", sep=";", decimal=b',')
-data.head()
+df = pd.read_csv("../../school_data.csv", sep=";", decimal=b',')
+df.head()
 
 # Exercise asks to use only the first 4 characteristics (column 0 is id)
-first_four = data.iloc[:,1:5]
+first_four = df.iloc[:,1:5]
 first_four.head()
 
 # Grouping in histograms
@@ -15,13 +15,13 @@ sexo_hist = first_four.loc[:, "Sexo"].value_counts()
 idade_hist = first_four.loc[:, "Idade"].value_counts()
 idade_hist = idade_hist.sort_index()
 # Exercise asks to group age below 18, between 18 and 21, and older than 21
-idade_blocks = pd.cut(data.Idade, (0, 18,21, 100), labels=["<=18", "18-21", ">21"])
+idade_blocks = pd.cut(df.Idade, (0, 18,21, 100), labels=["<=18", "18-21", ">21"])
 idade_blocks_hist = idade_blocks.value_counts()
 # Use grouping above and group it by gender
-idade_groups = data.groupby([idade_blocks, "Sexo"])
+idade_groups = df.groupby([idade_blocks, "Sexo"])
 idade_por_sexo = idade_groups.size().unstack()
 # For Altura (high) we will brake into 6 bins
-altura_hist = pd.cut(data.loc[:,"Alt"], 6).value_counts()
+altura_hist = pd.cut(df.loc[:,"Alt"], 6).value_counts()
 
 print("Histogram for class ID")
 print(turma_hist)
@@ -75,9 +75,9 @@ for index, row in idade_por_sexo.iterrows():
 idade_por_sexo_plot.margins(y=0.1)
 idade_por_sexo_plot.legend()
 
-altura_plot.hist(data.loc[:,"Alt"], bins=7)
+altura_plot.hist(df.loc[:,"Alt"], bins=7)
 altura_plot.set_title("Height variable")
-boxplot_altura.boxplot(data.loc[:,"Alt"])
+boxplot_altura.boxplot(df.loc[:,"Alt"])
 boxplot_altura.set_title("Boxplot for Height")
 
 plt.show()
