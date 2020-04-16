@@ -75,9 +75,9 @@ for index, row in idade_por_sexo.iterrows():
 idade_por_sexo_plot.margins(y=0.1)
 idade_por_sexo_plot.legend()
 
-altura_plot.hist(df.loc[:,"Alt"], bins=7)
 altura_plot.set_title("Height variable")
-boxplot_altura.boxplot(df.loc[:,"Alt"])
+altura_plot.hist(df.loc[:,"Alt"], bins=7)
 boxplot_altura.set_title("Boxplot for Height")
+boxplot_altura.boxplot(df.loc[:,"Alt"])
 
 plt.show()
