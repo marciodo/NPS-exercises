@@ -21,8 +21,6 @@ print(df)
 # "slow"
 heal_days_blocks = pd.cut(healing_days, (0, 15, 100), labels=["fast", "slow"])
 heal_days_blocks_freq = heal_days_blocks.value_counts()
-#heal_days_blocks_freq_norm = \
-#             pd.Series(heal_days_blocks).value_counts(normalize=True)
 
 plt.figure(num='Section 1.4 exercise 5')
 plt.title("Distribution of fast and slow healing times")
