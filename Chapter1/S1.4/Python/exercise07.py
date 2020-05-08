@@ -7,7 +7,7 @@ df["Age"] = [34, 43, 31, 37, 24, 25, 27, 22, 21, 26]
 df["Salary"] = [1100.0, 1450.0, 960.0, 960.0] + 3*[600.0] + 3*[450.0]
 df["Job Years"] = [5, 8, 6, 8, 3, 2, 5, 2, 3, 3]
 
-# Plot Course variable
+# Course variable
 course_freq = df.loc[:, "Course"].value_counts()
 print("Histogram for course")
 print(course_freq)
